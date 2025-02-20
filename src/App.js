@@ -10,7 +10,7 @@ class App extends Component {
     script.async = true;
     script.onload = () => {
       if (window.Analytics) {
-        Analytics.init();
+        window.Analytics.init();  // Added window. prefix here
       }
     };
     document.head.appendChild(script);
