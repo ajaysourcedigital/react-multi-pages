@@ -3,6 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    if (window.Analytics) return;
+    const script = document.createElement('script');
+    script.src = 'https://cdn.pandastack.in/analytics.js';
+    script.async = true;
+    script.onload = () => {
+      if (window.Analytics) {
+        Analytics.init();
+      }
+    };
+    document.head.appendChild(script);
+  }
+
   render() {
     return (
       <div className="App">
